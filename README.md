@@ -1,129 +1,56 @@
-# Faculty Information System - VIT Bhopal
+# Faculty Information System
 
-A modern, responsive web-based Faculty Information System for the School of Computer Science and Engineering at VIT Bhopal University.
-
-![Faculty Information System](assets/images/vit1.jpg)
-
-## Live Demo
-
-Visit the live website at [https://saurabhdubeyy.github.io/Faculty-Info-System/](https://saurabhdubeyy.github.io/Faculty-Info-System/)
-
-## Overview
-
-This system provides a comprehensive platform to manage faculty information, including:
-
-- Faculty profiles with contact information
-- Academic qualifications and research interests
-- Teaching assignments and courses
-- Publications and research projects
-- Professional activities and achievements
+A modern, responsive website for displaying information about faculty members at a university.
 
 ## Features
 
-- **Modern UI:** Clean, responsive design that works across devices
-- **Comprehensive Faculty Profiles:** Detailed faculty information
-- **Search Functionality:** Easily find faculty by name, research area, or department
-- **Admin Portal:** Secure interface for managing faculty data
-- **Responsive Design:** Works on mobile, tablet, and desktop devices
+- **Modern UI**: Clean, minimalist design with a responsive layout
+- **Faculty Directory**: Browse faculty members by department
+- **Search Functionality**: Find faculty by name, position, or specialization 
+- **Department Information**: View department details and associated faculty
+- **Research Highlights**: Showcase important research projects
+- **Contact Form**: Easy way for visitors to reach out
 
 ## Technologies Used
 
 - HTML5
-- CSS3 (with CSS Variables, Flexbox, and Grid)
+- CSS3 (with custom variables for theming)
 - JavaScript (ES6+)
-- Font Awesome 5 for icons
-- GitHub Pages for deployment
-
-## Getting Started
-
-### Prerequisites
-
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- A local web server (optional, for development)
-
-### Installation
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/Faculty-Info-System.git
-   ```
-
-2. Open the project folder:
-   ```
-   cd Faculty-Info-System
-   ```
-
-3. Open `index.html` in your web browser or set up a local server:
-   ```
-   python -m http.server 8000
-   ```
-   Then visit `http://localhost:8000` in your browser.
+- Font Awesome icons
+- Google Fonts
 
 ## Project Structure
 
 ```
 Faculty-Info-System/
-├── assets/                # Static assets
-│   ├── css/               # CSS stylesheets
-│   └── images/            # Faculty and other images
-├── js/                    # JavaScript files
-│   └── main.js            # Main JavaScript functionality
-├── pages/                 # HTML pages
-│   ├── adminportal.html   # Admin portal for managing faculty
-│   ├── [faculty-name].html # Individual faculty profile pages
-│   └── ...
-├── .github/workflows/     # GitHub Actions workflows
-│   └── deploy.yml         # Deployment workflow
-├── index.html             # Main faculty listing page
-└── README.md              # Project documentation
+├── assets/
+│   ├── css/
+│   │   └── main.css
+│   └── images/
+│       ├── faculty/
+│       ├── research/
+│       ├── logo.png
+│       └── dean.jpg
+├── js/
+│   ├── data.js
+│   └── main.js
+├── index.html
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+└── README.md
 ```
 
-## Usage
+## Development
 
-### Viewing Faculty Profiles
+To work on this project locally:
 
-1. Open `index.html` to view the list of all faculty members
-2. Click on any faculty member's card to view their detailed profile
-3. Use the search box to filter faculty by name or department
-
-### Managing Faculty (Admin)
-
-1. Access the admin portal via `pages/adminportal.html`
-2. Add new faculty members using the "Insert New Faculty" button
-3. Edit existing faculty information using the edit icons
-4. Remove faculty members using the delete icons
+1. Clone the repository: `git clone https://github.com/saurabhdubeyy/Faculty-Info-System.git`
+2. Open the project folder in your code editor
+3. Start a local server or open `index.html` directly in your browser
 
 ## Deployment
 
-The website is automatically deployed to GitHub Pages whenever changes are pushed to the main branch, using GitHub Actions.
+The site is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
 
-To deploy to GitHub Pages manually:
-
-1. Push your changes to the main branch
-2. Go to the repository settings on GitHub
-3. Navigate to the "Pages" section
-4. Select the "main" branch and "/ (root)" folder
-5. Click "Save"
-
-## Future Enhancements
-
-- Backend integration with a database system
-- User authentication for admin portal
-- Faculty login for self-management of profiles
-- Publication integration with Google Scholar
-- Advanced search and filtering options
-- Dark mode support
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- VIT Bhopal University
-- School of Computer Science and Engineering
-- All faculty members who contributed their information
+Live demo: https://saurabhdubeyy.github.io/Faculty-Info-System/
