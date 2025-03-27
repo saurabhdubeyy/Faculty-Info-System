@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>VITB SCSE</title>
+        <title>VITB SCSE - Faculty Information System</title>
         <link rel="stylesheet" href="css/index.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <meta charset="UTF-8">
     </head>
 
     <body>
-            <div id="top">
-                <div class="topLinks">
-                    <ul>
-                        <li><a href="login.html" id="login2">Login</a></li>
-                        <li> 
-                            <form action="" class="search-box">
-                            Search
+        <div id="top">
+            <div class="topLinks">
+                <ul>
+                    <li><a href="login.html" id="login2"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li> 
+                        <form action="" class="search-box">
                             <input type="text" class="text search-input" placeholder="Type here to search..." />
-                            </form>    
-                        </li>
-                    </ul>
-                </div>
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                        </form>    
+                    </li>
+                </ul>
             </div>
+        </div>
         
         <header id="head">
-           
             <div id="heading">
-                <img src="photos/vit1.jpg" alt="vit1 logo" srcset="photos/vit1.jpg" 400px>
-                <h1>School Of Computer Science</h1>
+                <img src="photos/vit1.jpg" alt="VIT Bhopal Logo" srcset="photos/vit1.jpg">
+                <h1>School Of Computer Science and Engineering</h1>
             </div>
             
-             <div id="moreSidenav" class="sidenav">
+            <div id="moreSidenav" class="sidenav">
                 <ul>
-
-                    <li><a href="https://vitbhopal.ac.in/contacts/">ContactUs</a></li>
-                    <li><a id="login" href="login.html">Login</a></li> 
+                    <li><a href="https://vitbhopal.ac.in/contacts/"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a id="login" href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li> 
                 </ul>
-             </div>         
+            </div>         
         </header>
         
         <div id="nav">
             <nav>
-                <button id="menu">Menu</button>
+                <button id="menu"><i class="fas fa-bars"></i> Menu</button>
                 <div id="contents">
-                    <a href="index.html">Home</a><span> |</span>
-                    
-                    <a href="index.html">Faculty</a>
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="index.html"><i class="fas fa-users"></i> Faculty</a>
+                    <a href="https://vitbhopal.ac.in/scse/"><i class="fas fa-university"></i> About SCSE</a>
+                    <a href="https://vitbhopal.ac.in/admission/"><i class="fas fa-graduation-cap"></i> Admissions</a>
+                    <a href="https://vitbhopal.ac.in/contacts/"><i class="fas fa-phone"></i> Contact</a>
                 </div>    
             </nav>
         </div>
@@ -60,11 +62,11 @@
             <h2>DEAN</h2>
             <a href="spk.html" id="hod">
                 <div class="f">
-                    <img src="photos/dean.png" alt="img">
+                    <img src="photos/dean.png" alt="Dean's Profile Picture">
                     <ul>
                         <li>Dr. S. Poonkuntran</li>
-                        <li>Professor & Dean SCSE.</li>
-                        
+                        <li>Professor & Dean SCSE</li>
+                        <li><i class="fas fa-envelope"></i> Email: dean.scse@vitbhopal.ac.in</li>
                     </ul>  
                 </div>    
             </a>    
@@ -72,151 +74,132 @@
         
 
         <div id="faculty">
+            <h2 id="facultyHead">Faculty Members</h2>
             
-            <h2 id="facultyHead">Faculties</h2>
             <a href="GG.html" id="f2">
                 <div class="f">
-                    <img src="photos/gg.png" alt="img">
+                    <img src="photos/gg.png" alt="Faculty Profile Picture">
                     <ul>
-                        <li>G.GANESHAN</li>
+                        <li>G. GANESHAN</li>
                         <li>Assistant Professor</li>
-                        
+                        <li><i class="fas fa-envelope"></i> Email: g.ganeshan@vitbhopal.ac.in</li>
                     </ul>  
                 </div> 
             </a>
            
             <a href="gsp.html" id="f3">
                 <div class="f">
-                    <img src="photos/photo.png" alt="img">
+                    <img src="photos/photo.png" alt="Faculty Profile Picture">
                     <ul>
                         <li>Gopal Singh Tandel</li>
                         <li>Assistant Professor</li>
-                       
+                        <li><i class="fas fa-envelope"></i> Email: gopal.tandel@vitbhopal.ac.in</li>
                     </ul>
                 </div> 
             </a>
              
             <a href="rfk.html" id="f4">
                 <div class="f">
-                    <img src="photos/rouf.png" alt="img">
+                    <img src="photos/rouf.png" alt="Faculty Profile Picture">
                     <ul>
-                        <li>Dr.AB Rouf Khan</li>
-                        <li>Assistant Professor Grade1</li>
-                         
+                        <li>Dr. AB Rouf Khan</li>
+                        <li>Assistant Professor Grade 1</li>
+                        <li><i class="fas fa-envelope"></i> Email: rouf.khan@vitbhopal.ac.in</li>
                     </ul>
                 </div> 
             </a>
                                           
             <a href="baseera.html" id="f5">
                 <div class="f">
-                    <img src="photos/baseera.png" alt="img">
+                    <img src="photos/baseera.png" alt="Faculty Profile Picture">
                     <ul>
-                        <li>Dr.BASEERA.A</li>
+                        <li>Dr. BASEERA A</li>
                         <li>Assistant Professor Senior Grade 2</li>
-                        
+                        <li><i class="fas fa-envelope"></i> Email: baseera.a@vitbhopal.ac.in</li>
                     </ul>
                 </div>
             </a> 
             
             <a href="anand.html" id="f6">
                 <div class="f">
-                    <img src="photos/anand.png" alt="img">
+                    <img src="photos/anand.png" alt="Faculty Profile Picture">
                     <ul>
-                        <li>Dr.ANAND MOTWANI	</li>
-                        <li>ANAND MOTWANI	</li>
-                        
+                        <li>Dr. ANAND MOTWANI</li>
+                        <li>Assistant Professor</li>
+                        <li><i class="fas fa-envelope"></i> Email: anand.motwani@vitbhopal.ac.in</li>
                     </ul>
                 </div>
             </a>  
                
             <a href="Dr.GyanPrakash.html" id="f7">
                 <div class="f">
-                    <img src="photos/GPT.png" alt="img">
+                    <img src="photos/GPT.png" alt="Faculty Profile Picture">
                     <ul>
                         <li>GYAN PRAKASH TIWARY</li>
                         <li>Assistant Professor</li>
-                        
+                        <li><i class="fas fa-envelope"></i> Email: gyanprakash.tiwary@vitbhopal.ac.in</li>
                     </ul>
                 </div>
             </a> 
             
             <a href="ashish.html" id="f8">
                 <div class="f">
-                    <img src="photos/ashish.png" alt="img">
+                    <img src="photos/ashish.png" alt="Faculty Profile Picture">
                     <ul>
                         <li>ASHISH KUMAR SAHU</li>
                         <li>Teaching Fellow</li>
-                    </ul>
-                </div>
-            </a>
-            
-            <a href="pavan.html" id="f9">
-                <div class="f">
-                    <img src="photos/pavan.png" alt="img">
-                    <ul>
-                        <li>Pavan Kumar Mishra</li>
-                        <li>Assistant Professor (Senior)</li>
-                        
-                    </ul>
-                </div>
-            </a>
-                 
-            <a href="Manickam.html" id="f10">
-                <div class="f">
-                    <img src="photos/manickam.png" alt="img">
-                    <ul>
-                        <li>MANICKAM A</li>
-                        <li>Assistant Professor (Senior)</li>
-                        
+                        <li><i class="fas fa-envelope"></i> Email: ashish.sahu@vitbhopal.ac.in</li>
                     </ul>
                 </div>
             </a>
             
             <a href="Divya.html" id="f11">
                 <div class="f">
-                    <img src="photos/divya.png" alt="img">
+                    <img src="photos/divya.png" alt="Faculty Profile Picture">
                     <ul>
                         <li>DIVYA HARIDAS</li>
                         <li>Assistant Professor</li>
-                        
+                        <li><i class="fas fa-envelope"></i> Email: divya.haridas@vitbhopal.ac.in</li>
                     </ul>
                 </div> 
             </a>  
-               
         </div>             
      
-
-
         <footer id="footer">
             <div id="links">
-                <h3>Useful links</h3>
-                    <ul>
-                        <li><a href="https://vitbhopal.ac.in/" target="_next">VITB</a></li>
-                        <li><a href="https://vitbhopal.ac.in/admission/">Admissions</a></li>
-                        <li><a href="https://vitbhopal.ac.in/contacts/">Contact</a></li>
-                    </ul>
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="https://vitbhopal.ac.in/" target="_blank"><i class="fas fa-external-link-alt"></i> VITB</a></li>
+                    <li><a href="https://vitbhopal.ac.in/admission/"><i class="fas fa-user-graduate"></i> Admissions</a></li>
+                    <li><a href="https://vitbhopal.ac.in/contacts/"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
             </div>
 
             <div id="programs">
                 <h3>Our Programs</h3>
                 <ul>
-                    <li><a href="https://vitbhopal.ac.in/scse/">School of computer Science</a></li>
-                    <li><a href="https://vitbhopal.ac.in/smec/">School of mechanical eninnering</a></li>
-                    <li><a href="https://vitbhopal.ac.in/business-school/">business-school</a></li>
-                    <li><a href="https://vitbhopal.ac.in/sasl/">SASL</a></li>
-                    <li><a href="https://vitbhopal.ac.in/architecture/">school of architecture</a></li>
+                    <li><a href="https://vitbhopal.ac.in/scse/"><i class="fas fa-laptop-code"></i> School of Computer Science</a></li>
+                    <li><a href="https://vitbhopal.ac.in/smec/"><i class="fas fa-cogs"></i> School of Mechanical Engineering</a></li>
+                    <li><a href="https://vitbhopal.ac.in/business-school/"><i class="fas fa-chart-line"></i> Business School</a></li>
+                    <li><a href="https://vitbhopal.ac.in/sasl/"><i class="fas fa-book"></i> SASL</a></li>
+                    <li><a href="https://vitbhopal.ac.in/architecture/"><i class="fas fa-building"></i> School of Architecture</a></li>
                 </ul>
             </div>
 
             <div id="address">
+                <h3><i class="fas fa-map-marker-alt"></i> Contact Us</h3>
                 <address>
                     <strong>School of Computer Sciences,<br>
-                            Vellore Institue of technology,Bhopal,</strong><br>
+                    Vellore Institute of Technology, Bhopal,</strong><br>
                     Bhopal, 466114, India<br>
-                    Tel : 1234567890
+                    <i class="fas fa-phone"></i> Tel: +91 1234567890<br>
+                    <i class="fas fa-envelope"></i> Email: scse@vitbhopal.ac.in
+                </address>
             </div>
-            <p id="copyright"> Pratham 2022 &copy; </p>
+            <p id="copyright">© 2023 VIT Bhopal. All rights reserved.</p>
         </footer>
+
+        <script src="viewScript.js"></script>
     </body>
 </html>
 

@@ -1,101 +1,182 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Insert</title>
+        <title>Add New Faculty - VITB SCSE</title>
         <link rel="stylesheet" href="css/INSERT NEW FACULTY FORM.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
     </head>
     <body>
-        <img id="imgposition" src="photos/QAU-Logo.png" alt="QAU Logo"><br>
-        <p id="textcenter"><strong>Computer Science department <br> <small>Quaid-E-Azam University Islamabad</small></strong></p>
-        <h1 class="underline">Personal Information</h1>
-        <form>
-            <div class="row">
-                <div class="col1">
-                    <label for="fnam">First Name</label>
-                </div>
-                <div class="col2">
-                    <input type="text" name="fname" placeholder="Enter Name here...">
-                </div>
+        <div class="form-container">
+            <div class="form-header">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Faculty List</a>
+                <img src="photos/vit1.jpg" alt="VIT Bhopal Logo">
+                <h1>School of Computer Science and Engineering</h1>
+                <p>Add New Faculty Member</p>
             </div>
-            <div class="row">
-                <div class="col1">
-                    <label for="lastname">Last Name</label>
-                </div>
-                <div class="col2">
-                    <input type="text" name="lastname" placeholder="Entet last name here...">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col1">
-                   <label for="Designation">Designation</label>
-                </div>
-                <div class="col2">
-                    <select name="designation">
-                        <option value="Lecturer">Lecturer</option>
-                        <option value="Assistant Professor">Assistant Professor</option>
-                        <option value="Head of department(HOD)">Head of Department</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col1">
-                    <label for="contact">Contact Number</label>
-                </div>
-                <div class="col2">
-                    <input type="tel" name="contact" placeholder="+92-XX-XXXX-XXXX">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col1">
-                    <label for="email">E-mail</label>
-                </div>
-                <div class="col2">
-                    <input type="email" name="email" placeholder="someone@gmail.com">
-                </div>
-            </div>
-            <h1 class="underline">Research</h1>
-            <div class="row">
-                <div class="col1">
-                    <label for="research">Enter Area of Research</label>
-                </div>
-                <div class="col2">
-                    <textarea type="text" name="reseach" placeholder="Write from here..."></textarea>
-                </div>
-            </div>
-            <h1 class="underline">Teaching</h1>
-            <div class="row">
-                <div class="col1">
-                    <label for="teaching mphil/phd">Teaching courses to MPhil/PhD</label>
-                </div>
-                <div class="col2">
-                    <textarea type="text" name="teaching mphil/phd" placeholder="Enter Courses one by one here..."></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col1">
-                    <label for="teaching msc/bs">Teaching courses to M.Sc/BS</label>
-                </div>
-                <div class="col2">
-                    <textarea type="text" name="teaching msc/bs" placeholder="Enter Courses one by one here..."></textarea>
-                </div>
-            </div>
-            <h1 class="underline">Publications</h1>
-            <div class="row">
-                <div class="col1">
-                    <label for="publictaion">Teacher Publications</label>
-                </div>
-                <div class="col2">
-                    <textarea type="text" name="publications" placeholder="Enter Publications here..."></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <input type="submit" name="submit" placeholder="Submit">
-            </div>
-        
 
+            <form id="facultyForm" method="post" enctype="multipart/form-data">
+                <div class="form-section">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="profileImage">Profile Image</label>
+                        <div class="file-upload">
+                            <input type="file" name="profileImage" id="profileImage" accept="image/*">
+                            <label for="profileImage" class="file-label"><i class="fas fa-upload"></i> Choose a file</label>
+                            <div id="file-name">No file chosen</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name <span class="required">*</span></label>
+                            <input type="text" name="fname" id="fname" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name <span class="required">*</span></label>
+                            <input type="text" name="lastname" id="lastname" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="designation">Designation <span class="required">*</span></label>
+                            <select name="designation" id="designation" required>
+                                <option value="">Select designation...</option>
+                                <option value="Teaching Fellow">Teaching Fellow</option>
+                                <option value="Assistant Professor">Assistant Professor</option>
+                                <option value="Assistant Professor Grade 1">Assistant Professor Grade 1</option>
+                                <option value="Assistant Professor Senior Grade 2">Assistant Professor Senior Grade 2</option>
+                                <option value="Associate Professor">Associate Professor</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Dean">Dean</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department <span class="required">*</span></label>
+                            <select name="department" id="department" required>
+                                <option value="">Select department...</option>
+                                <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                <option value="Data Science">Data Science</option>
+                                <option value="IoT">IoT</option>
+                                <option value="Cyber Security">Cyber Security</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact">Contact Number <span class="required">*</span></label>
+                            <input type="tel" name="contact" id="contact" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" name="email" id="email" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="officeLocation">Office Location</label>
+                        <input type="text" name="officeLocation" id="officeLocation" placeholder="Building and Room Number">
+                    </div>
+                </div>
 
-        </form>
+                <div class="form-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Educational Qualifications</h2>
+                    <div class="form-group">
+                        <label for="qualifications">Degrees & Certifications</label>
+                        <textarea name="qualifications" id="qualifications" placeholder="Ph.D. in Computer Science, IIT (2015)&#10;M.Tech in Computer Science, NIT (2010)"></textarea>
+                    </div>
+                </div>
 
+                <div class="form-section">
+                    <h2><i class="fas fa-flask"></i> Research</h2>
+                    <div class="form-group">
+                        <label for="research">Areas of Research Interest</label>
+                        <textarea name="research" id="research" placeholder="Enter research areas and interests"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> Teaching</h2>
+                    <div class="form-group">
+                        <label for="currentCourses">Current Courses</label>
+                        <textarea name="currentCourses" id="currentCourses" placeholder="Enter current courses being taught"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="previousCourses">Previously Taught Courses</label>
+                        <textarea name="previousCourses" id="previousCourses" placeholder="Enter previously taught courses"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-book"></i> Publications</h2>
+                    <div class="form-group">
+                        <label for="publications">Recent Publications</label>
+                        <textarea name="publications" id="publications" placeholder="List of recent publications (include title, journal/conference, year)"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+                    <div class="form-group">
+                        <label for="projects">Current & Past Projects</label>
+                        <textarea name="projects" id="projects" placeholder="List current and past research projects"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2><i class="fas fa-link"></i> External Links</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="linkedIn">LinkedIn Profile</label>
+                            <input type="url" name="linkedIn" id="linkedIn" placeholder="https://linkedin.com/in/username">
+                        </div>
+                        <div class="form-group">
+                            <label for="googleScholar">Google Scholar</label>
+                            <input type="url" name="googleScholar" id="googleScholar" placeholder="https://scholar.google.com/...">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="researchGate">ResearchGate</label>
+                            <input type="url" name="researchGate" id="researchGate" placeholder="https://researchgate.net/profile/...">
+                        </div>
+                        <div class="form-group">
+                            <label for="personalWebsite">Personal Website</label>
+                            <input type="url" name="personalWebsite" id="personalWebsite" placeholder="https://example.com">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn reset-btn"><i class="fas fa-times"></i> Clear Form</button>
+                    <button type="submit" class="btn submit-btn"><i class="fas fa-save"></i> Add Faculty</button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // Display selected filename for file input
+            document.getElementById('profileImage').addEventListener('change', function() {
+                const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+                document.getElementById('file-name').textContent = fileName;
+            });
+            
+            // Basic form validation and submission
+            document.getElementById('facultyForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // In a real application, you would submit the form data to a server here
+                // For this demo, we'll just show an alert
+                alert('Faculty information submitted successfully! In a real application, this would save to a database.');
+                
+                // Redirect to faculty list page
+                window.location.href = 'index.html';
+            });
+        </script>
     </body>
 </html>

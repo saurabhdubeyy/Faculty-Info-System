@@ -666,3 +666,428 @@ footer p{
 
 
 }
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-text: #f8f9fa;
+    --bg-color: #f8f9fa;
+    --card-bg: #fff;
+    --header-bg: #2c3e50;
+    --footer-bg: #34495e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 12px 20px;
+    margin: 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Header styles */
+header {
+    background-color: var(--header-bg);
+    color: var(--light-text);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Faculty info and personal section */
+.intro {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personalInfo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.personalInfo h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.personalInfo h3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.line {
+    width: 50px;
+    border: 2px solid var(--primary-color);
+    margin: 1rem auto;
+}
+
+.contact-info {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: var(--primary-color);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Navigation options */
+.options {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.options ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    border-bottom: 1px solid #eee;
+}
+
+.options li {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+}
+
+.options a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.options a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Faculty bio */
+.faculty-bio {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.faculty-bio h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.faculty-bio h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.faculty-bio p {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* Sections */
+.sect {
+    margin: 1rem;
+}
+
+.sect section {
+    display: none;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.sect section.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sect h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.sect h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.sect h4 {
+    color: var(--text-color);
+    margin: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.sect ul, .sect ol {
+    margin-left: 1.5rem;
+}
+
+.sect li {
+    margin-bottom: 0.5rem;
+}
+
+/* Specific section styling */
+.courses, .pub-list, .project-list, .activities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-category, .publication, .project, .activity-category {
+    background-color: rgba(0,0,0,0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.project li {
+    margin-bottom: 1.5rem;
+    background-color: rgba(0,0,0,0.02);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.project strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.project p {
+    margin-bottom: 0.5rem;
+}
+
+.project em {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--light-text);
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Media queries for responsive design */
+@media screen and (min-width: 768px) {
+    .personalInfo {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .personalInfo img {
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+    
+    .personalInfo div {
+        text-align: left;
+    }
+    
+    .line {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    
+    .contact-info, .social-links {
+        text-align: left;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .options ul {
+        flex-direction: column;
+    }
+    
+    .options li {
+        width: 100%;
+    }
+    
+    .courses, .pub-list, .project-list, .activities-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
