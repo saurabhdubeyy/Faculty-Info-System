@@ -1,74 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>VITB SCSE - Faculty Information System</title>
-        <link rel="stylesheet" href="assets/css/index.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Faculty Information System</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
     </head>
 
     <body>
-        <!-- Header -->
-        <header class="site-header">
+        <!-- Navbar -->
+        <nav class="navbar">
             <div class="container">
-                <nav class="navbar">
-                    <a href="index.html" class="navbar-brand">
-                        <img src="assets/images/vit1.jpg" alt="VIT Bhopal Logo">
-                        <div>
-                            <h1 class="site-title">VIT Bhopal</h1>
-                            <p class="site-subtitle">School of Computer Science and Engineering</p>
-                        </div>
-                    </a>
-                    
-                    <button class="menu-toggle" id="menuToggle">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    
-                    <ul class="navbar-nav" id="navMenu">
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link active">
-                                <i class="fas fa-home"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.html" class="nav-link">
-                                <i class="fas fa-users"></i> Faculty
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://vitbhopal.ac.in/scse/" class="nav-link">
-                                <i class="fas fa-university"></i> About SCSE
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://vitbhopal.ac.in/admission/" class="nav-link">
-                                <i class="fas fa-graduation-cap"></i> Admissions
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://vitbhopal.ac.in/contacts/" class="nav-link">
-                                <i class="fas fa-phone"></i> Contact
-                            </a>
-                        </li>
+                <a href="#" class="navbar-logo">
+                    <img src="assets/images/logo.png" alt="University Logo">
+                    <span>School of Computer Sciences</span>
+                </a>
+                <button id="navbar-toggle" class="navbar-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div id="navbar-menu" class="navbar-menu">
+                    <ul class="nav-links">
+                        <li><a href="#hero" class="nav-link active">Home</a></li>
+                        <li><a href="#faculty" class="nav-link">Faculty</a></li>
+                        <li><a href="#departments" class="nav-link">Departments</a></li>
+                        <li><a href="#research" class="nav-link">Research</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
                     </ul>
-                    
-                    <a href="pages/login.html" class="btn login-btn">
-                        <i class="fas fa-sign-in-alt"></i> Login
-                    </a>
-                </nav>
+                    <a href="#" class="btn btn-outline">Login</a>
+                </div>
             </div>
-        </header>
+        </nav>
 
         <!-- Hero Section -->
-        <section class="hero">
+        <section id="hero" class="hero-section">
             <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-title">Meet Our Distinguished Faculty</h2>
-                    <p class="hero-text">Our faculty members challenge their students, share insights gained through professional experience and communicate the knowledge they've spent a lifetime acquiring.</p>
-                    <form class="search-form" id="facultySearch">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search faculty by name, expertise, or department...">
-                        <button type="submit" class="search-btn">
+                <div class="hero-content animate-on-scroll">
+                    <h1>Meet Our Distinguished Faculty</h1>
+                    <p>Our faculty members are leaders in their fields, dedicated to excellence in research and education.</p>
+                    <form id="faculty-search-form" class="search-form">
+                        <input type="text" id="search-input" placeholder="Search for faculty by name, position, or specialization">
+                        <button type="submit" class="btn btn-primary">
                             <i class="fas fa-search"></i>
                         </button>
                     </form>
@@ -76,288 +52,392 @@
             </div>
         </section>
 
-        <!-- Dean Section -->
-        <section class="faculty-section">
+        <!-- Stats Section -->
+        <section id="stats" class="stats-section">
             <div class="container">
-                <h2 class="section-title">Dean</h2>
-                <div class="dean-card">
-                    <div class="faculty-image">
-                        <img src="assets/images/dean.png" alt="Dr. S. Poonkuntran">
+                <div class="stats-grid">
+                    <div class="stat-card animate-on-scroll">
+                        <i class="fas fa-user-tie"></i>
+                        <h3 id="faculty-count">48</h3>
+                        <p>Faculty Members</p>
                     </div>
-                    <div class="faculty-info">
-                        <h3>Dr. S. Poonkuntran</h3>
-                        <p>Professor & Dean SCSE</p>
-                        <div class="faculty-contact">
-                            <a href="mailto:dean.scse@vitbhopal.ac.in">
-                                <i class="fas fa-envelope"></i> Email
+                    <div class="stat-card animate-on-scroll">
+                        <i class="fas fa-building"></i>
+                        <h3 id="departments-count">5</h3>
+                        <p>Departments</p>
+                    </div>
+                    <div class="stat-card animate-on-scroll">
+                        <i class="fas fa-flask"></i>
+                        <h3 id="research-count">32</h3>
+                        <p>Research Projects</p>
+                    </div>
+                    <div class="stat-card animate-on-scroll">
+                        <i class="fas fa-book"></i>
+                        <h3 id="publications-count">237</h3>
+                        <p>Publications</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dean Section -->
+        <section id="dean" class="dean-section">
+            <div class="container">
+                <div class="dean-card animate-on-scroll">
+                    <div class="dean-image">
+                        <img id="dean-photo" src="assets/images/dean.jpg" alt="Dean">
+                    </div>
+                    <div class="dean-content">
+                        <h2 id="dean-name">Dr. Samantha Wilson</h2>
+                        <h3 id="dean-position">Dean, School of Computer Sciences</h3>
+                        <blockquote id="dean-quote">
+                            "Our faculty is dedicated to nurturing the next generation of innovators and leaders in computer science and engineering. We strive for excellence in both teaching and research."
+                        </blockquote>
+                        <div class="dean-contact">
+                            <a id="dean-email" href="mailto:dean.cs@university.edu" class="contact-link">
+                                <i class="fas fa-envelope"></i> dean.cs@university.edu
                             </a>
-                            <a href="pages/spk.html" class="profile-link">
-                                <i class="fas fa-user"></i> View Profile
+                            <a id="dean-phone" href="tel:+15551234567" class="contact-link">
+                                <i class="fas fa-phone"></i> +1 (555) 123-4567
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <h2 class="section-title">Faculty Members</h2>
-                <div class="faculty-grid">
-                    <!-- Faculty Card 1 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/vvkumar.png" alt="Dr. V.V Kumar">
-                        </div>
-                        <div class="faculty-info">
-                            <h3>Dr. V.V Kumar</h3>
-                            <p>Assistant Professor (Sr.) & HoD CSE</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:vv.kumar@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/vvkumar.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 2 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/deepa.png" alt="Dr. Deepa V Jose">
-                        </div>
-                        <div class="faculty-info">
-                            <h3>Dr. Deepa V Jose</h3>
-                            <p>Assistant Professor (Sr.) & HoD CSE</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:deepa.v@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/deepa.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 3 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/ankush.png" alt="Dr. Ankush Ghosh">
-                        </div>
-                        <div class="faculty-info">
-                            <h3>Dr. Ankush Ghosh</h3>
-                            <p>Assistant Professor (Sr.) & Associate Dean SCSE</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:ankush.ghosh@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/ankush.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 4 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/gg.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">G. GANESHAN</h3>
-                            <p class="faculty-position">Assistant Professor</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:g.ganeshan@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/GG.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 5 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/photo.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">Gopal Singh Tandel</h3>
-                            <p class="faculty-position">Assistant Professor</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:gopal.tandel@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/gsp.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 6 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/rouf.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">Dr. AB Rouf Khan</h3>
-                            <p class="faculty-position">Assistant Professor Grade 1</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:rouf.khan@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/rfk.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 7 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/baseera.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">Dr. BASEERA A</h3>
-                            <p class="faculty-position">Assistant Professor Senior Grade 2</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:baseera.a@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/baseera.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 8 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/anand.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">Dr. ANAND MOTWANI</h3>
-                            <p class="faculty-position">Assistant Professor</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:anand.motwani@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/anand.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 9 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/GPT.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">GYAN PRAKASH TIWARY</h3>
-                            <p class="faculty-position">Assistant Professor</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:gyanprakash.tiwary@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/Dr.GyanPrakash.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 10 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/ashish.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">ASHISH KUMAR SAHU</h3>
-                            <p class="faculty-position">Teaching Fellow</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:ashish.sahu@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/ashish.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Faculty Card 11 -->
-                    <div class="faculty-card">
-                        <div class="faculty-image">
-                            <img src="assets/images/divya.png" alt="Faculty Profile Picture">
-                        </div>
-                        <div class="faculty-info">
-                            <h3 class="faculty-name">DIVYA HARIDAS</h3>
-                            <p class="faculty-position">Assistant Professor</p>
-                            <div class="faculty-contact">
-                                <a href="mailto:divya.haridas@vitbhopal.ac.in">
-                                    <i class="fas fa-envelope"></i> Email
-                                </a>
-                                <a href="pages/Divya.html" class="profile-link">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Faculty Section -->
+        <section id="faculty" class="faculty-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Our Faculty</h2>
+                    <p>Explore our diverse team of experienced educators and researchers.</p>
                 </div>
                 
-                <!-- Search Results Container -->
-                <div id="searchResults" class="text-center mt-4"></div>
+                <div class="filter-buttons animate-on-scroll">
+                    <button class="filter-btn active" data-filter="all">All Departments</button>
+                    <button class="filter-btn" data-filter="cs">Computer Science</button>
+                    <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+                    <button class="filter-btn" data-filter="is">Information Systems</button>
+                    <button class="filter-btn" data-filter="nw">Networks & Security</button>
+                    <button class="filter-btn" data-filter="se">Software Engineering</button>
+                </div>
+                
+                <div class="faculty-grid" id="faculty-grid">
+                    <!-- Faculty cards will be populated by JavaScript from data.js -->
+                </div>
+                
+                <div class="faculty-cta animate-on-scroll">
+                    <a href="#contact" class="btn btn-primary">Contact Our Faculty</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments" class="departments-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Our Departments</h2>
+                    <p>Discover our specialized academic departments and their focus areas.</p>
+                </div>
+                
+                <div class="departments-grid" id="departments-grid">
+                    <!-- Department cards will be populated by JavaScript from data.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="research-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Research Highlights</h2>
+                    <p>Explore our groundbreaking research initiatives led by our faculty.</p>
+                </div>
+                
+                <div class="research-grid" id="research-grid">
+                    <!-- Research cards will be populated by JavaScript from data.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <h2>Contact Us</h2>
+                    <p>Have questions? Reach out to our School of Computer Sciences.</p>
+                </div>
+                
+                <div class="contact-container animate-on-scroll">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Visit Us</h3>
+                                <p>Computer Science Building<br>123 University Avenue<br>Anytown, ST 12345</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:info@cs.university.edu">info@cs.university.edu</a></p>
+                                <p><a href="mailto:admissions@cs.university.edu">admissions@cs.university.edu</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+15551234567">+1 (555) 123-4567</a> (Main Office)</p>
+                                <p><a href="tel:+15551234568">+1 (555) 123-4568</a> (Admissions)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Office Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="site-footer">
+        <footer class="footer">
             <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3>Useful Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="https://vitbhopal.ac.in/" target="_blank"><i class="fas fa-external-link-alt"></i> VITB</a></li>
-                            <li><a href="https://vitbhopal.ac.in/admission/"><i class="fas fa-user-graduate"></i> Admissions</a></li>
-                            <li><a href="https://vitbhopal.ac.in/contacts/"><i class="fas fa-envelope"></i> Contact</a></li>
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <a href="#" class="footer-logo">
+                            <img src="assets/images/logo.png" alt="University Logo">
+                            <span>School of Computer Sciences</span>
+                        </a>
+                        <p>Dedicated to excellence in teaching, research, and service in computer science and related fields.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#faculty">Faculty</a></li>
+                            <li><a href="#departments">Departments</a></li>
+                            <li><a href="#research">Research</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
-
-                    <div class="footer-section">
-                        <h3>Our Programs</h3>
-                        <ul class="footer-links">
-                            <li><a href="https://vitbhopal.ac.in/scse/"><i class="fas fa-laptop-code"></i> School of Computer Science</a></li>
-                            <li><a href="https://vitbhopal.ac.in/smec/"><i class="fas fa-cogs"></i> School of Mechanical Engineering</a></li>
-                            <li><a href="https://vitbhopal.ac.in/business-school/"><i class="fas fa-chart-line"></i> Business School</a></li>
-                            <li><a href="https://vitbhopal.ac.in/sasl/"><i class="fas fa-book"></i> SASL</a></li>
-                            <li><a href="https://vitbhopal.ac.in/architecture/"><i class="fas fa-building"></i> School of Architecture</a></li>
+                    
+                    <div class="footer-links">
+                        <h3>Programs</h3>
+                        <ul>
+                            <li><a href="#">Undergraduate Programs</a></li>
+                            <li><a href="#">Graduate Programs</a></li>
+                            <li><a href="#">Doctoral Programs</a></li>
+                            <li><a href="#">Certificate Programs</a></li>
+                            <li><a href="#">Online Learning</a></li>
                         </ul>
                     </div>
-
-                    <div class="footer-section footer-contact">
-                        <h3>Contact Us</h3>
-                        <address>
-                            <p><i class="fas fa-map-marker-alt"></i> School of Computer Sciences,<br>
-                            Vellore Institute of Technology, Bhopal,<br>
-                            Bhopal, 466114, India</p>
-                            <p><i class="fas fa-phone"></i> +91 1234567890</p>
-                            <p><i class="fas fa-envelope"></i> scse@vitbhopal.ac.in</p>
-                        </address>
+                    
+                    <div class="footer-newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter for updates on events and news.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email Address" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
                 
-                <div class="copyright">
-                    © 2023 VIT Bhopal. All rights reserved.
+                <div class="footer-bottom">
+                    <p>&copy; <span id="current-year">2023</span> School of Computer Sciences. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Accessibility</a>
+                    </div>
                 </div>
             </div>
         </footer>
 
+        <!-- Scripts -->
+        <script src="js/data.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            // Populate dynamic content
+            document.addEventListener('DOMContentLoaded', function() {
+                // Update stats
+                const stats = facultyData.stats;
+                document.getElementById('faculty-count').textContent = stats.facultyCount;
+                document.getElementById('departments-count').textContent = stats.departmentsCount;
+                document.getElementById('research-count').textContent = stats.researchProjects;
+                document.getElementById('publications-count').textContent = stats.publications;
+                
+                // Update dean info
+                const dean = facultyData.dean;
+                document.getElementById('dean-name').textContent = dean.name;
+                document.getElementById('dean-position').textContent = dean.position;
+                document.getElementById('dean-quote').textContent = dean.quote;
+                document.getElementById('dean-photo').src = dean.photo;
+                document.getElementById('dean-email').href = `mailto:${dean.email}`;
+                document.getElementById('dean-email').innerHTML = `<i class="fas fa-envelope"></i> ${dean.email}`;
+                document.getElementById('dean-phone').href = `tel:${dean.phone.replace(/[^0-9+]/g, '')}`;
+                document.getElementById('dean-phone').innerHTML = `<i class="fas fa-phone"></i> ${dean.phone}`;
+                
+                // Generate faculty cards
+                const facultyGrid = document.getElementById('faculty-grid');
+                facultyData.faculty.forEach(faculty => {
+                    const departmentData = facultyData.departments.find(d => d.id === faculty.department);
+                    
+                    const card = document.createElement('div');
+                    card.className = 'faculty-card animate-on-scroll';
+                    card.setAttribute('data-category', faculty.department);
+                    
+                    card.innerHTML = `
+                        <div class="faculty-image">
+                            <img src="${faculty.photo}" alt="${faculty.name}">
+                        </div>
+                        <div class="faculty-details">
+                            <h3 class="faculty-name">${faculty.name}</h3>
+                            <p class="faculty-position">${faculty.position}</p>
+                            <p class="faculty-specialization">${faculty.specialization}</p>
+                            <div class="faculty-department" style="background-color: ${departmentData?.color || '#ccc'}">
+                                <i class="${departmentData?.icon || 'fas fa-university'}"></i>
+                                <span>${departmentData?.name || 'Department'}</span>
+                            </div>
+                            <div class="faculty-contact">
+                                <a href="mailto:${faculty.email}" aria-label="Email ${faculty.name}">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="#" onclick="showFacultyProfile('${faculty.id}')" aria-label="View profile of ${faculty.name}">
+                                    <i class="fas fa-user"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    facultyGrid.appendChild(card);
+                });
+                
+                // Generate department cards
+                const departmentsGrid = document.getElementById('departments-grid');
+                facultyData.departments.forEach(department => {
+                    const card = document.createElement('div');
+                    card.className = 'department-card animate-on-scroll';
+                    
+                    card.innerHTML = `
+                        <div class="department-icon" style="background-color: ${department.color}">
+                            <i class="${department.icon}"></i>
+                        </div>
+                        <h3>${department.name}</h3>
+                        <p>${department.description}</p>
+                        <a href="#faculty" onclick="filterFaculty('${department.id}')" class="btn btn-outline">
+                            View Faculty
+                        </a>
+                    `;
+                    
+                    departmentsGrid.appendChild(card);
+                });
+                
+                // Generate research cards
+                const researchGrid = document.getElementById('research-grid');
+                facultyData.research.forEach(research => {
+                    const card = document.createElement('div');
+                    card.className = 'research-card animate-on-scroll';
+                    
+                    card.innerHTML = `
+                        <div class="research-image">
+                            <img src="${research.image}" alt="${research.title}">
+                        </div>
+                        <div class="research-content">
+                            <h3>${research.title}</h3>
+                            <p>${research.description}</p>
+                            <div class="research-leaders">
+                                <h4>Research Leaders:</h4>
+                                <ul>
+                                    ${research.leaders.map(leader => `<li>${leader}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                    
+                    researchGrid.appendChild(card);
+                });
+                
+                // Set current year in footer
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+            });
+            
+            // Function to filter faculty by department from department cards
+            function filterFaculty(departmentId) {
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-filter') === departmentId) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                const facultyCards = document.querySelectorAll('.faculty-card');
+                facultyCards.forEach(card => {
+                    if (departmentId === 'all' || card.getAttribute('data-category') === departmentId) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Scroll to faculty section
+                const facultySection = document.getElementById('faculty');
+                if (facultySection) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = facultySection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Function to show faculty profile (placeholder for future implementation)
+            function showFacultyProfile(facultyId) {
+                alert(`Profile view for faculty ID: ${facultyId} will be implemented in the next phase.`);
+            }
+        </script>
     </body>
 </html>
 

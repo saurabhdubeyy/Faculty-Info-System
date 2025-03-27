@@ -700,231 +700,341 @@ function showProfessionalActivities(){
 
 }
 
-// Modern UI JavaScript functionality for Faculty Info System
+// Main JavaScript for Faculty Info System
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
+    // Initialize components
+    initNavbar();
+    initFacultyFilter();
+    initSearch();
+    initAnimations();
     
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+    // Handle contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', handleContactForm);
+    }
+    
+    // Handle newsletter subscription
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', handleNewsletterForm);
+    }
+});
+
+// Navigation functionality
+function initNavbar() {
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Toggle mobile menu
+    if (navbarToggle && navbarMenu) {
+        navbarToggle.addEventListener('click', function() {
+            navbarMenu.classList.toggle('active');
+            navbarToggle.classList.toggle('active');
         });
     }
     
-    // Tab functionality for faculty profile
-    const tabLinks = document.querySelectorAll('.tab-link');
-    const tabPanes = document.querySelectorAll('.tab-pane');
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (navbarMenu && navbarMenu.classList.contains('active') && 
+            !event.target.closest('.navbar-menu') && 
+            !event.target.closest('.navbar-toggle')) {
+            navbarMenu.classList.remove('active');
+            navbarToggle.classList.remove('active');
+        }
+    });
     
-    if (tabLinks.length > 0) {
-        tabLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+    // Smooth scroll for nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Check if the link is an anchor link
+            if (href.startsWith('#') && href.length > 1) {
                 e.preventDefault();
+                const targetElement = document.querySelector(href);
                 
-                // Remove active class from all tabs
-                tabLinks.forEach(tab => tab.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                
-                // Add active class to clicked tab
+                if (targetElement) {
+                    // Close mobile menu
+                    if (navbarMenu) {
+                        navbarMenu.classList.remove('active');
+                    }
+                    if (navbarToggle) {
+                        navbarToggle.classList.remove('active');
+                    }
+                    
+                    // Scroll to target
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Active link on scroll
+    window.addEventListener('scroll', function() {
+        let current = '';
+        
+        const sections = document.querySelectorAll('section[id]');
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navHeight - 100;
+            const sectionHeight = section.offsetHeight;
+            
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            
+            if (href === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Faculty filtering functionality
+function initFacultyFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    
+    if (filterButtons.length > 0 && facultyCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
                 
-                // Show corresponding tab content
-                const tabId = this.getAttribute('data-tab');
-                const tabPane = document.getElementById(tabId);
-                if (tabPane) {
-                    tabPane.classList.add('active');
-                }
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter faculty cards
+                facultyCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     }
-    
-    // Search functionality
-    const searchForm = document.getElementById('facultySearch');
-    const searchInput = document.getElementById('searchInput');
+}
+
+// Search functionality
+function initSearch() {
+    const searchForm = document.getElementById('faculty-search-form');
+    const searchInput = document.getElementById('search-input');
     
     if (searchForm && searchInput) {
         searchForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            performSearchModern(searchInput.value);
+            performSearch(searchInput.value);
         });
         
-        searchInput.addEventListener('keyup', function() {
+        // Search on input if more than 3 characters
+        searchInput.addEventListener('input', function() {
             if (this.value.length > 2) {
-                performSearchModern(this.value);
+                performSearch(this.value);
             } else if (this.value.length === 0) {
-                // Show all faculty if search is cleared
                 resetSearch();
             }
         });
     }
-    
-    // Highlight active navigation link
-    highlightActiveNavLink();
-    
-    // Animation on scroll
-    animateOnScroll();
-});
-
-// Legacy functions for backward compatibility (these will still work with old pages)
-function showtimeslot() {
-    showSection('invisible1');
 }
 
-function showTeachings() {
-    showSection('invisible2');
-}
-
-function showPublications() {
-    showSection('invisible3');
-}
-
-function showProjects() {
-    showSection('invisible7');
-}
-
-function showProfessionalActivities() {
-    showSection('invisible8');
-}
-
-function showSection(id) {
-    // Hide all sections
-    const sections = document.querySelectorAll('.sect section');
-    sections.forEach(section => {
-        section.classList.remove('show');
-    });
-    
-    // Show the selected section
-    const selectedSection = document.getElementById(id);
-    if (selectedSection) {
-        selectedSection.classList.add('show');
-    }
-}
-
-// Modern search functionality
-function performSearchModern(query) {
+function performSearch(query) {
     query = query.toLowerCase().trim();
     const facultyCards = document.querySelectorAll('.faculty-card');
     let resultCount = 0;
     
     if (facultyCards.length > 0) {
         facultyCards.forEach(card => {
-            const facultyName = card.querySelector('h3').textContent.toLowerCase();
-            const facultyPosition = card.querySelector('p').textContent.toLowerCase();
-            const facultyInfo = facultyName + ' ' + facultyPosition;
+            const name = card.querySelector('.faculty-name').textContent.toLowerCase();
+            const position = card.querySelector('.faculty-position').textContent.toLowerCase();
+            const specialization = card.querySelector('.faculty-specialization').textContent.toLowerCase();
             
-            if (facultyInfo.includes(query)) {
-                card.style.display = 'block';
+            const contentToSearch = `${name} ${position} ${specialization}`;
+            
+            if (contentToSearch.includes(query)) {
+                card.style.display = 'flex';
                 resultCount++;
+                
+                // If we're in the faculty section, scroll to it
+                if (resultCount === 1) {
+                    const facultySection = document.getElementById('faculty');
+                    if (facultySection) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = facultySection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
             } else {
                 card.style.display = 'none';
             }
         });
         
-        // Update URL and page title with search query
-        if (query.length > 0) {
-            const newUrl = new URL(window.location);
-            newUrl.searchParams.set('search', query);
-            window.history.replaceState({}, '', newUrl);
-            document.title = `Search: ${query} - Faculty Info System`;
-            
-            // Show "no results" message if needed
-            updateNoResultsMessage(resultCount, query);
-        } else {
-            resetSearch();
-        }
+        // Show no results message if needed
+        updateNoResultsMessage(resultCount, query);
     }
 }
 
 function resetSearch() {
-    // Reset URL and title
-    const newUrl = new URL(window.location);
-    newUrl.searchParams.delete('search');
-    window.history.replaceState({}, '', newUrl);
-    document.title = 'Faculty Info System - VIT Bhopal';
-    
-    // Show all faculty cards
     const facultyCards = document.querySelectorAll('.faculty-card');
     facultyCards.forEach(card => {
-        card.style.display = 'block';
+        card.style.display = 'flex';
     });
     
-    // Hide "no results" message
-    const noResultsMsg = document.querySelector('.no-results');
-    if (noResultsMsg) {
-        noResultsMsg.style.display = 'none';
+    // Reset filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-filter') === 'all') {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Hide no results message
+    const noResultsMessage = document.querySelector('.no-results-message');
+    if (noResultsMessage) {
+        noResultsMessage.remove();
     }
 }
 
 function updateNoResultsMessage(resultCount, query) {
-    let noResultsMsg = document.querySelector('.no-results');
+    // Remove existing message if present
+    const existingMessage = document.querySelector('.no-results-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
     
+    // If no results, show message
     if (resultCount === 0) {
-        if (!noResultsMsg) {
-            noResultsMsg = document.createElement('div');
-            noResultsMsg.className = 'no-results';
-            const facultySection = document.querySelector('.faculty-grid');
-            if (facultySection) {
-                facultySection.parentNode.insertBefore(noResultsMsg, facultySection.nextSibling);
-            }
+        const facultySection = document.getElementById('faculty');
+        if (facultySection) {
+            const container = facultySection.querySelector('.container');
+            const noResultsMessage = document.createElement('div');
+            noResultsMessage.className = 'no-results-message';
+            noResultsMessage.innerHTML = `
+                <p>No faculty members found matching "<strong>${query}</strong>"</p>
+                <button class="btn btn-primary" onclick="document.getElementById('search-input').value = ''; resetSearch();">
+                    <i class="fas fa-times"></i> Clear Search
+                </button>
+            `;
+            
+            // Insert before faculty-cta
+            const facultyCta = container.querySelector('.faculty-cta');
+            container.insertBefore(noResultsMessage, facultyCta);
         }
-        
-        noResultsMsg.innerHTML = `
-            <p>No faculty members found matching "<strong>${query}</strong>"</p>
-            <button class="btn" onclick="resetSearch()">
-                <i class="fas fa-times"></i> Clear Search
-            </button>
-        `;
-        noResultsMsg.style.display = 'block';
-    } else if (noResultsMsg) {
-        noResultsMsg.style.display = 'none';
     }
 }
 
-function highlightActiveNavLink() {
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-link');
+// Scroll animations
+function initAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
     
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        if (currentPath.endsWith(linkPath) || 
-            (currentPath.includes('/faculty/') && linkPath === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
-}
-
-function animateOnScroll() {
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    if (animateElements.length > 0) {
+    if (elements.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, {
+            threshold: 0.1
+        });
         
-        animateElements.forEach(element => {
+        elements.forEach(element => {
             observer.observe(element);
         });
     }
 }
 
-// Check for URL params on page load
-window.addEventListener('DOMContentLoaded', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchQuery = urlParams.get('search');
+// Contact form handling
+function handleContactForm(e) {
+    e.preventDefault();
     
-    if (searchQuery) {
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.value = searchQuery;
-            performSearchModern(searchQuery);
-        }
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // You would typically send this data to a server
+    // For demo purposes, we'll just show a success message
+    const form = this;
+    const formElements = form.elements;
+    
+    // Disable form elements
+    for (let i = 0; i < formElements.length; i++) {
+        formElements[i].disabled = true;
     }
-});
+    
+    // Show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    
+    // Simulate server response
+    setTimeout(() => {
+        // Replace form with success message
+        form.innerHTML = `
+            <div class="form-success">
+                <i class="fas fa-check-circle"></i>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us, ${name}. We will get back to you shortly.</p>
+            </div>
+        `;
+    }, 1500);
+}
+
+// Newsletter form handling
+function handleNewsletterForm(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const email = this.querySelector('input[type="email"]').value;
+    
+    // You would typically send this data to a server
+    // For demo purposes, we'll just show a success message
+    const form = this;
+    const formElements = form.elements;
+    
+    // Disable form elements
+    for (let i = 0; i < formElements.length; i++) {
+        formElements[i].disabled = true;
+    }
+    
+    // Show loading state
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerHTML;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    
+    // Simulate server response
+    setTimeout(() => {
+        form.innerHTML = `<p class="newsletter-success">Thank you for subscribing! You will now receive our latest updates.</p>`;
+    }, 1000);
+}
+
+// Initialize other utilities
+window.resetSearch = resetSearch;
 
 
 
