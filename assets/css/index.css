@@ -5,30 +5,25 @@
 }
 
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2980b9;
-    --accent-color: #e74c3c;
+    --primary-color: #4e42d4;
+    --primary-light: #5d52e3;
+    --secondary-color: #ffcb44;
     --text-color: #333;
     --light-text: #f8f9fa;
+    --muted-text: #6c757d;
     --bg-color: #f8f9fa;
     --card-bg: #fff;
-    --header-bg: #2c3e50;
-    --footer-bg: #34495e;
+    --border-color: #eaeaea;
+    --dark-bg: #272042;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
 }
 
 body{
     background-color: var(--bg-color);
-    display: grid;
-    grid-auto-rows: auto;
-    grid-template-columns: auto;
-    grid-template-areas: 
-                        "top"
-                         "H"
-                         "N"
-                         "Q"
-                         "E"
-                         "F"
-                         "foot";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
@@ -42,11 +37,11 @@ img{
 a{
     text-decoration: none;
     color: var(--primary-color);
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 a:hover{
-    color: var(--secondary-color);
+    color: var(--primary-light);
 }
 
 li{
@@ -620,5 +615,136 @@ input[type=text]:focus {
                              ". E .";
     }
   }
+
+/* Faculty Grid */
+.faculty-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.dean-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .dean-card {
+        flex-direction: row;
+        text-align: left;
+        padding: var(--spacing-xl);
+    }
+    
+    .dean-card .faculty-image {
+        margin-right: var(--spacing-xl);
+        margin-bottom: 0;
+    }
+}
+
+.dean-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.faculty-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.faculty-card:hover .faculty-image img {
+    transform: scale(1.05);
+}
+
+.faculty-info {
+    padding: var(--spacing-md);
+}
+
+.faculty-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+.faculty-info p {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.faculty-contact {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-md);
+}
+
+.faculty-contact a {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.faculty-contact a:hover {
+    color: var(--primary-color);
+}
+
+.faculty-contact i {
+    margin-right: var(--spacing-xs);
+}
+
+.profile-link {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.profile-link:hover {
+    background-color: var(--primary-dark);
+    color: white !important;
+}
+
+.no-results {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background-color: rgba(255, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-md);
+}
 
 

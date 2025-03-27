@@ -1,3 +1,119 @@
+// Modern UI JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+    }
+    
+    // Search functionality
+    const searchForm = document.querySelector('.search-form');
+    const searchInput = document.querySelector('.search-input');
+    
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            performSearchModern(searchInput.value);
+        });
+        
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                performSearchModern(this.value);
+            }
+        });
+    }
+    
+    // Highlight active nav link based on current page
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href').split('/').pop();
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Animate elements when they come into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.faculty-card, .dean-card, .section-title');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('animate');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on page load
+});
+
+/**
+ * Modern search functionality
+ * @param {string} query - Search query
+ */
+function performSearchModern(query) {
+    if (!query) return;
+    
+    query = query.toLowerCase();
+    let foundAny = false;
+    
+    // Get all faculty cards
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    
+    facultyCards.forEach(card => {
+        const cardText = card.textContent.toLowerCase();
+        
+        if (cardText.includes(query)) {
+            // Highlight matching cards
+            card.style.display = 'block';
+            card.classList.add('search-match');
+            foundAny = true;
+        } else {
+            // Hide non-matching cards
+            card.style.display = 'none';
+            card.classList.remove('search-match');
+        }
+    });
+    
+    // Display message for no results
+    const resultsContainer = document.getElementById('searchResults');
+    
+    if (resultsContainer) {
+        if (!foundAny) {
+            resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search fa-3x mb-3"></i>
+                    <h3>No faculty found matching "${query}"</h3>
+                    <p>Try a different search term or browse all faculty members</p>
+                </div>
+            `;
+            resultsContainer.style.display = 'block';
+        } else {
+            resultsContainer.innerHTML = '';
+            resultsContainer.style.display = 'none';
+        }
+    }
+    
+    // Update URL for share/bookmark purposes
+    const url = new URL(window.location);
+    url.searchParams.set('search', query);
+    window.history.replaceState({}, '', url);
+    
+    // Update page title to reflect search
+    document.title = `Search: ${query} - VITB SCSE`;
+}
+
 // Main functionality for showing and hiding sections
 document.addEventListener('DOMContentLoaded', function() {
     // Set up menu toggle for mobile
@@ -583,6 +699,232 @@ function showProfessionalActivities(){
 
 
 }
+
+// Modern UI JavaScript functionality for Faculty Info System
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+    }
+    
+    // Tab functionality for faculty profile
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    if (tabLinks.length > 0) {
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                tabLinks.forEach(tab => tab.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding tab content
+                const tabId = this.getAttribute('data-tab');
+                const tabPane = document.getElementById(tabId);
+                if (tabPane) {
+                    tabPane.classList.add('active');
+                }
+            });
+        });
+    }
+    
+    // Search functionality
+    const searchForm = document.getElementById('facultySearch');
+    const searchInput = document.getElementById('searchInput');
+    
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            performSearchModern(searchInput.value);
+        });
+        
+        searchInput.addEventListener('keyup', function() {
+            if (this.value.length > 2) {
+                performSearchModern(this.value);
+            } else if (this.value.length === 0) {
+                // Show all faculty if search is cleared
+                resetSearch();
+            }
+        });
+    }
+    
+    // Highlight active navigation link
+    highlightActiveNavLink();
+    
+    // Animation on scroll
+    animateOnScroll();
+});
+
+// Legacy functions for backward compatibility (these will still work with old pages)
+function showtimeslot() {
+    showSection('invisible1');
+}
+
+function showTeachings() {
+    showSection('invisible2');
+}
+
+function showPublications() {
+    showSection('invisible3');
+}
+
+function showProjects() {
+    showSection('invisible7');
+}
+
+function showProfessionalActivities() {
+    showSection('invisible8');
+}
+
+function showSection(id) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.sect section');
+    sections.forEach(section => {
+        section.classList.remove('show');
+    });
+    
+    // Show the selected section
+    const selectedSection = document.getElementById(id);
+    if (selectedSection) {
+        selectedSection.classList.add('show');
+    }
+}
+
+// Modern search functionality
+function performSearchModern(query) {
+    query = query.toLowerCase().trim();
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    let resultCount = 0;
+    
+    if (facultyCards.length > 0) {
+        facultyCards.forEach(card => {
+            const facultyName = card.querySelector('h3').textContent.toLowerCase();
+            const facultyPosition = card.querySelector('p').textContent.toLowerCase();
+            const facultyInfo = facultyName + ' ' + facultyPosition;
+            
+            if (facultyInfo.includes(query)) {
+                card.style.display = 'block';
+                resultCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        // Update URL and page title with search query
+        if (query.length > 0) {
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('search', query);
+            window.history.replaceState({}, '', newUrl);
+            document.title = `Search: ${query} - Faculty Info System`;
+            
+            // Show "no results" message if needed
+            updateNoResultsMessage(resultCount, query);
+        } else {
+            resetSearch();
+        }
+    }
+}
+
+function resetSearch() {
+    // Reset URL and title
+    const newUrl = new URL(window.location);
+    newUrl.searchParams.delete('search');
+    window.history.replaceState({}, '', newUrl);
+    document.title = 'Faculty Info System - VIT Bhopal';
+    
+    // Show all faculty cards
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    facultyCards.forEach(card => {
+        card.style.display = 'block';
+    });
+    
+    // Hide "no results" message
+    const noResultsMsg = document.querySelector('.no-results');
+    if (noResultsMsg) {
+        noResultsMsg.style.display = 'none';
+    }
+}
+
+function updateNoResultsMessage(resultCount, query) {
+    let noResultsMsg = document.querySelector('.no-results');
+    
+    if (resultCount === 0) {
+        if (!noResultsMsg) {
+            noResultsMsg = document.createElement('div');
+            noResultsMsg.className = 'no-results';
+            const facultySection = document.querySelector('.faculty-grid');
+            if (facultySection) {
+                facultySection.parentNode.insertBefore(noResultsMsg, facultySection.nextSibling);
+            }
+        }
+        
+        noResultsMsg.innerHTML = `
+            <p>No faculty members found matching "<strong>${query}</strong>"</p>
+            <button class="btn" onclick="resetSearch()">
+                <i class="fas fa-times"></i> Clear Search
+            </button>
+        `;
+        noResultsMsg.style.display = 'block';
+    } else if (noResultsMsg) {
+        noResultsMsg.style.display = 'none';
+    }
+}
+
+function highlightActiveNavLink() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        if (currentPath.endsWith(linkPath) || 
+            (currentPath.includes('/faculty/') && linkPath === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+}
+
+function animateOnScroll() {
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if (animateElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+}
+
+// Check for URL params on page load
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    
+    if (searchQuery) {
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.value = searchQuery;
+            performSearchModern(searchQuery);
+        }
+    }
+});
 
 
 

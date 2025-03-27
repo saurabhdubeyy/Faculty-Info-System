@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Dr. S. Poonkuntran - VITB Faculty</title>
+        <link href="../assets/css/myStyle.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <nav class="navbar">
+                    <a href="../index.html" class="navbar-brand">
+                        <img src="../assets/images/vit1.jpg" alt="VIT Bhopal Logo">
+                        <div>
+                            <h1 class="site-title">VIT Bhopal</h1>
+                            <p class="site-subtitle">School of Computer Science and Engineering</p>
+                        </div>
+                    </a>
+                    
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <ul class="navbar-nav" id="navMenu">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <i class="fas fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link active">
+                                <i class="fas fa-users"></i> Faculty
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://vitbhopal.ac.in/scse/" class="nav-link">
+                                <i class="fas fa-university"></i> About SCSE
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://vitbhopal.ac.in/admission/" class="nav-link">
+                                <i class="fas fa-graduation-cap"></i> Admissions
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://vitbhopal.ac.in/contacts/" class="nav-link">
+                                <i class="fas fa-phone"></i> Contact
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <a href="login.html" class="btn login-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="profile-page">
+            <div class="container">
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Faculty List
+                </a>
+                
+                <!-- Faculty Profile Header -->
+                <section class="profile-header">
+                    <div class="profile-image">
+                        <img src="../assets/images/dean.png" alt="Dr. S. Poonkuntran Profile Picture">
+                    </div>
+                    <div class="profile-info">
+                        <h1>Dr. S. Poonkuntran</h1>
+                        <p class="profile-title">Professor & Dean SCSE</p>
+                        
+                        <div class="profile-contact">
+                            <p><i class="fas fa-phone"></i> <a href="tel:1234567890">1234567890</a></p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:dean.scse@vitbhopal.ac.in">dean.scse@vitbhopal.ac.in</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> Office: Room 101, SCSE Building</p>
+                        </div>
+                        
+                        <div class="profile-social">
+                            <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank" class="social-link"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" target="_blank" class="social-link"><i class="fab fa-researchgate"></i></a>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Faculty Profile Content -->
+                <section class="profile-content">
+                    <div class="profile-bio">
+                        <h2>Biography</h2>
+                        <p>Dr. S. Poonkuntran is the Dean of the School of Computer Science and Engineering at VIT Bhopal. He has over 20 years of experience in teaching and research. His areas of expertise include Artificial Intelligence, Machine Learning, and Data Science.</p>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <ul class="tabs-nav">
+                            <li>
+                                <a href="#" class="tab-link active" data-tab="office-hours">
+                                    <i class="fas fa-calendar-alt"></i> Office Hours
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-link" data-tab="teaching">
+                                    <i class="fas fa-chalkboard-teacher"></i> Teaching
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-link" data-tab="publications">
+                                    <i class="fas fa-book"></i> Publications
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-link" data-tab="projects">
+                                    <i class="fas fa-project-diagram"></i> Projects
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="tab-link" data-tab="activities">
+                                    <i class="fas fa-briefcase"></i> Professional Activities
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <div class="tabs-content">
+                            <!-- Office Hours Tab -->
+                            <div id="office-hours" class="tab-pane active">
+                                <h3><i class="fas fa-calendar-alt"></i> Office Hours</h3>
+                                <ul class="schedule-list">
+                                    <li><span class="day">Monday:</span> 10:00 AM - 12:00 PM</li>
+                                    <li><span class="day">Wednesday:</span> 2:00 PM - 4:00 PM</li>
+                                    <li><span class="day">Friday:</span> 11:00 AM - 1:00 PM</li>
+                                    <li class="note">Other times available by appointment</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Teaching Tab -->
+                            <div id="teaching" class="tab-pane">
+                                <h3><i class="fas fa-chalkboard-teacher"></i> Teaching</h3>
+                                <div class="teaching-grid">
+                                    <div class="teaching-card">
+                                        <h4>Current Courses (2023-24)</h4>
+                                        <ul>
+                                            <li>CSE1001: Introduction to Computer Science</li>
+                                            <li>CSE3002: Machine Learning</li>
+                                            <li>CSE4010: Advanced AI Techniques</li>
+                                        </ul>
+                                    </div>
+                                    <div class="teaching-card">
+                                        <h4>Previously Taught Courses</h4>
+                                        <ul>
+                                            <li>CSE2001: Data Structures and Algorithms</li>
+                                            <li>CSE3001: Database Management Systems</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Publications Tab -->
+                            <div id="publications" class="tab-pane">
+                                <h3><i class="fas fa-book"></i> Publications</h3>
+                                <div class="pub-section">
+                                    <h4>Journal Publications</h4>
+                                    <ol class="pub-list">
+                                        <li>
+                                            <p class="pub-title">Advances in AI-driven Data Analytics</p>
+                                            <p class="pub-authors">Poonkuntran, S., et al. (2022)</p>
+                                            <p class="pub-journal">International Journal of Computer Science, 45(2), 112-124</p>
+                                        </li>
+                                        <li>
+                                            <p class="pub-title">Machine Learning Applications in Healthcare</p>
+                                            <p class="pub-authors">Poonkuntran, S., et al. (2021)</p>
+                                            <p class="pub-journal">Journal of Computational Medicine, 10(3), 78-92</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="pub-section">
+                                    <h4>Conference Papers</h4>
+                                    <ol class="pub-list">
+                                        <li>
+                                            <p class="pub-title">Deep Learning for Medical Image Analysis</p>
+                                            <p class="pub-authors">Poonkuntran, S., et al. (2023)</p>
+                                            <p class="pub-journal">Proceedings of the International Conference on AI in Healthcare</p>
+                                        </li>
+                                        <li>
+                                            <p class="pub-title">Reinforcement Learning in Autonomous Systems</p>
+                                            <p class="pub-authors">Poonkuntran, S., et al. (2022)</p>
+                                            <p class="pub-journal">IEEE Conference on Intelligent Systems</p>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <!-- Projects Tab -->
+                            <div id="projects" class="tab-pane">
+                                <h3><i class="fas fa-project-diagram"></i> Research Projects</h3>
+                                <div class="projects-list">
+                                    <div class="project-card">
+                                        <h4>AI-Driven Educational Systems</h4>
+                                        <p>Development of intelligent tutoring systems using machine learning to personalize education.</p>
+                                        <div class="project-meta">
+                                            <span class="project-funding"><i class="fas fa-money-bill-wave"></i> Funding: Ministry of Education</span>
+                                            <span class="project-duration"><i class="fas fa-calendar"></i> 2022-2025</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-card">
+                                        <h4>Healthcare Analytics Platform</h4>
+                                        <p>Creating predictive models for early disease detection and treatment optimization.</p>
+                                        <div class="project-meta">
+                                            <span class="project-funding"><i class="fas fa-handshake"></i> Collaboration with VIT Healthcare</span>
+                                            <span class="project-duration"><i class="fas fa-calendar"></i> 2023-2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Professional Activities Tab -->
+                            <div id="activities" class="tab-pane">
+                                <h3><i class="fas fa-briefcase"></i> Professional Activities</h3>
+                                <div class="activities-grid">
+                                    <div class="activity-card">
+                                        <h4>Editorial Boards</h4>
+                                        <ul>
+                                            <li>Associate Editor, International Journal of Computer Science</li>
+                                            <li>Review Board Member, IEEE Transactions on AI</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="activity-card">
+                                        <h4>Professional Memberships</h4>
+                                        <ul>
+                                            <li>Senior Member, IEEE</li>
+                                            <li>Member, ACM</li>
+                                            <li>Member, Computer Society of India</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://vitbhopal.ac.in"><i class="fas fa-external-link-alt"></i> VIT Bhopal</a></li>
+                            <li><a href="https://vitbhopal.ac.in/scse"><i class="fas fa-laptop-code"></i> SCSE</a></li>
+                            <li><a href="../index.html"><i class="fas fa-users"></i> Faculty</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section footer-contact">
+                        <h3>Contact</h3>
+                        <p><i class="fas fa-envelope"></i> scse@vitbhopal.ac.in</p>
+                        <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    © 2023 VIT Bhopal. All rights reserved.
+                </div>
+            </div>
+        </footer>
+
+        <script src="../js/main.js"></script>
+    </body>
+</html>
