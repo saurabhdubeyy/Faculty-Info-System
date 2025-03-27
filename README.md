@@ -6,7 +6,7 @@ A modern, responsive web-based Faculty Information System for the School of Comp
 
 ## Live Demo
 
-Visit the live website at [https://github.com/yourusername/Faculty-Info-System](https://github.com/yourusername/Faculty-Info-System)
+Visit the live website at [https://saurabhdubeyy.github.io/Faculty-Info-System/](https://saurabhdubeyy.github.io/Faculty-Info-System/)
 
 ## Overview
 
